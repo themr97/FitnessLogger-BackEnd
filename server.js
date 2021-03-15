@@ -1,7 +1,7 @@
 const express = require("express");
 const compression = require("compression");
 const connectDB = require("./config/db");
-const path = require("path");
+// const path = require("path");
 
 const app = express();
 
@@ -25,14 +25,14 @@ app.use("/api/workouts", require("./routes/api/workouts"));
 app.use("/api/weightTracked", require("./routes/api/weightTracked"));
 
 // Serve static assets in production
-if (process.env.NODE_ENV === "production") {
-  // Set static folder
-  app.use(express.static("client/build"));
+// if (process.env.NODE_ENV === "production") {
+//   // Set static folder
+//   app.use(express.static("client/build"));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+//   });
+// }
 
 app.get('/',(req,res) =>{
   res.send("Fitness Logger API")
